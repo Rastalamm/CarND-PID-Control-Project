@@ -3,6 +3,11 @@ Self-Driving Car Engineer Nanodegree Program
 
 ---
 
+## Solution and Explanation
+
+For explanation of how I chose my params, see the `main.cpp` file.
+[Video of a single lap](https://youtu.be/hbuUgmPUvO8)
+
 ## Dependencies
 
 * cmake >= 3.5
@@ -19,7 +24,7 @@ Self-Driving Car Engineer Nanodegree Program
   * Run either `./install-mac.sh` or `./install-ubuntu.sh`.
   * If you install from source, checkout to commit `e94b6e1`, i.e.
     ```
-    git clone https://github.com/uWebSockets/uWebSockets 
+    git clone https://github.com/uWebSockets/uWebSockets
     cd uWebSockets
     git checkout e94b6e1
     ```
@@ -33,7 +38,7 @@ There's an experimental patch for windows in this [PR](https://github.com/udacit
 1. Clone this repo.
 2. Make a build directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
-4. Run it: `./pid`. 
+4. Run it: `./pid`.
 
 ## Editor Settings
 
