@@ -34,6 +34,19 @@ int main()
 
   PID pid;
   // TODO: Initialize the pid variable.
+  double Kp = 0.3;
+  double Ki = 0.0004;
+  double Kd = 15.0;
+
+  /*
+    Above initial values were set manually.
+    I started with the values from the lessons and gradually modified them based on visual feedback.
+    Higher values for Kp caused the car to turn sharply and significantly overshoot the reference trajectory.
+    Ki value was decreased but did not have a major visual affect. There is almost no bias and this value did not need much tuning.
+    for Kd, I adjusted this one alongside the Kp value to reduce overshooting, after finding a 'good' value for Kp
+  */
+
+  pid.Init(Kp, Ki, Kd);
 
   h.onMessage([&pid](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length, uWS::OpCode opCode) {
     // "42" at the start of the message means there's a websocket message event.
@@ -57,8 +70,11 @@ int main()
           * NOTE: Feel free to play around with the throttle and speed. Maybe use
           * another PID controller to control the speed!
           */
-          
+
           // DEBUG
+          pid.UpdateError(cte);
+          steer_value = pid.TotalError();
+
           std::cout << "CTE: " << cte << " Steering Value: " << steer_value << std::endl;
 
           json msgJson;
