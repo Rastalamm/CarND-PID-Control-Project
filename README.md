@@ -5,7 +5,16 @@ Self-Driving Car Engineer Nanodegree Program
 
 ## Solution and Explanation
 
+The goal of the PID controller is use steering, throttle and brakes to move a car where we want it to go. The PID is broken down into 3 steps: P (proportion), I (integral), and D (differantial).
+
+#### P (Kp) - The proportional coefficient. Set steering angle in proprotion to CTE, the lateral distance between whicle and reference trajectory. The larger the error, the sharper the turn to the trajectory. Using this controller alone, will not provide a smooth drive. When the error reaches 0, or hits the reference trajectory, the cars orientation is not facing in the same orientation, causing the robot to overshoot. By increasing this parameter, the car oscillates faster.
+
+#### D (Kd) - The differential coefficient. When the car has turned enough to reduce the CTE, it will notice the error is shrinking and counter steer, allowing a graceful approach towards the trajectory.
+
+#### I (Ki) - The integral coefficient. The sum of all the CTE's we've ever had. This controller is used to compensate for biases. There is little to no bias in this project, so this controller did not have much effect on the solution.
+
 For explanation of how I chose my params, see the `main.cpp` file.
+
 [Video of a single lap](https://youtu.be/hbuUgmPUvO8)
 
 ## Dependencies
